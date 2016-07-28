@@ -7,8 +7,19 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var Bear = require('./app/models/bear');
+var Movie = require('./app/models/movie');
 
-mongoose.connect('mongodb://localhost:27017/third');
+// mongoose.connect('mongodb://localhost:27017/third');
+function modeldb(){
+  var db = mongoose.connect('mongodb://localhost:27017/third');
+  require('./app/models/bear');
+  require('./app/models/movie');
+  return db;
+}
+
+var db = modeldb();
+
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
