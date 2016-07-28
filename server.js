@@ -39,11 +39,21 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
+    res.json({ message: 'hooray! welcome to our api!' });
 });
 
 
 // more routes for our API will happen here
+
+// router.route('/movies')
+//   .get(function(req, res) {
+//     Movie.find(function(err, bears) {
+//       if (err) res.send(err);
+
+//       res.json(bears)
+//     })
+//   });
+
 
 router.route('/bears')
   .post(function(req, res) {
@@ -102,6 +112,7 @@ router.route('/bears/:bear_id')
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+app.use('/api', movies);
 
 // START THE SERVER
 // =============================================================================
