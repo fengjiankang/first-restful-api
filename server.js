@@ -31,6 +31,7 @@ var port = process.env.PORT || 8080;        // set our port
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
+var movies = require('./app/routes/movie');
 router.use(function(req, res, next) {
   console.log('Something is happening.');
   next(); // make sure wo go to the next routes and don't stop here
